@@ -1,7 +1,12 @@
 package main
 
-import "witty-server/internal/logger"
+import (
+	"witty-server/internal/config"
+	"witty-server/server"
+)
 
 func main() {
-	logger.CreateLog(logger.Success, "se ha ido a tomar por culo al app")
+	appConfig := config.LoadConfig()
+
+	server.NewServer(appConfig).Start()
 }
